@@ -23,7 +23,7 @@ export default function Dashboard() {
     setLoading(true);
     usersCollection.get().then((users) => {
       const items = users.docs.map((doc) => doc.data());
-      console.log(items)
+      //console.log(items)
       const user = items.find((user) => user.id === currentUser.email)
       setLoggedInUserRole(user);
       setLoading(false);
@@ -34,8 +34,6 @@ export default function Dashboard() {
     getLoggedInUserRole();
     // eslint-disable-next-line
   }, []);
-
-  console.log(currentUserRole);
 
   const history = useHistory()
 
