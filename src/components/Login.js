@@ -3,7 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import firebase from "firebase/app"
-import app from "../firebase"
+import {firebase as app} from "../firebase"
 
 export default function Login() {
   const emailRef = useRef()
@@ -55,7 +55,13 @@ export default function Login() {
 
   return (
     <>
-    <div className="w-100" style={{ maxWidth: "400px" }}>
+    <div style={{backgroundImage: `url("https://i.ibb.co/c2N6H3y/ithink2.png")`,backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        minWidth: '100vw',
+        height: '100vh'
+    }}>
+    <div className="w-100" style={{maxWidth: "400px", marginLeft: '800px', marginTop: '250px'}}>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
@@ -69,25 +75,26 @@ export default function Login() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100" type="submit" >
               Log In
             </Button>
           </Form>
-          <div className="w-100 text-center mt-3">
+          <div className="w-100 text-center mt-3" style={{marginBottom:'12px'}}>
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
 
           <Form onSubmit={handleLogin}>
                         <Button className="w-100" type="submit">
-                            Log In w/ Google
+                            Log using Google
                         </Button>
           </Form>
 
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
+      <div className="w-100 text-center mt-2" style={{ color: "white" }}>
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
+    </div>
     </div>
 
     </>
